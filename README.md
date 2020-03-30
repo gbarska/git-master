@@ -1,87 +1,127 @@
-# Project Title
+# Basic Commands
 
-One Paragraph of project description goes here
+Git basics 
 
-## Getting Started
+## Initial changes
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+### git status
 
-### Prerequisites
+Displays repository status
 
-What things you need to install the software and how to install them
+### git add
+
+Adds files to the staging area
+
+### git commit -m "First file in demo repo"
+
+Commit changes with -m message
+
+### git commit -am "First file in demo repo"
+
+Adds all modified files to the staging area and  Commits changes with -m message 
+
+similar to git add . + git commit -m
+
+
+### rm -rf .git
+
+Removes git files 
+
+## git init .
+ 
+Initializes git  on existing project folder
+
+### git log 
+
+Logs all commits that are part of a Repository
+
+### git show
+
+Display the commit changes along with the diffs
+
+### git ls-files
+
+List all files tracked by the repository so far
+
+## Backing Out changes
+
+### git reset HEAD
+
+Backs out commited changes to the staging area but keep the modifications on the working directory
+
+### git checkout
+
+Discard canges entirely and restore to the last status as the repository
 
 ```
-Give examples
+git checkout --README.md
 ```
 
-### Installing
 
-A step by step series of examples that tell you how to get a development env running
+## Git Alias
 
-Say what the step will be
+### git config
 
-```
-Give the example
-```
-
-And repeat
+Creates alias for specified git commands && parameters
 
 ```
-until finished
+git config --global alias.hist "log --oneline --graph --decorate --all"
 ```
 
-End with an example of getting some data out of the system or using it for a little demo
-
-## Running the tests
-
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why
+Hint: list all configs created:
 
 ```
-Give an example
+git config --global --list
 ```
 
-### And coding style tests
+### git checkout
 
-Explain what these tests test and why
+Discard canges entirely and restore to the last status as the repository
 
 ```
-Give an example
+git checkout --README.md
+```
+ 
+## Removing and renaming files
+
+### git mv 
+
+Renames (moves*) files
+
+```
+git mv example.txt demo.txt 
+
+git commit -m "renaming file"
 ```
 
-## Deployment
+The file name would be changed even though it was renamed after the  git add command
 
-Add additional notes about how to deploy this on a live system
+### git rm
 
-## Built With
+Removes the staged file and tracks the change
 
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
 
-## Contributing
+Ps: if files were modified outside git (without git mv or git rm ) then git will miss that real change, ex:
 
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
+mv example.txt newname.txt 
 
-## Versioning
+git status > git would consider example as deleted and newname as a new file 
 
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
+to fix:
 
-## Authors
+git add -A 
 
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
+### git diff 
 
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+Shows diference between two commits 
 
-## License
+```
+git diff 
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+or
 
-## Acknowledgments
+git diff d444e90 HEAD
+```
 
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
+ps: HEAD -> last commit at current branch
+
