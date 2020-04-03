@@ -27,7 +27,7 @@ similar to git add . + git commit -m
 
 Removes git files 
 
-## git init .
+### git init
  
 Initializes git  on existing project folder
 
@@ -73,16 +73,9 @@ Hint: list all configs created:
 ```
 git config --global --list
 ```
-
-### git checkout
-
-Discard canges entirely and restore to the last status as the repository
-
-```
-git checkout --README.md
-```
  
 ## Removing and renaming files
+
 
 ### git mv 
 
@@ -111,9 +104,9 @@ to fix:
 
 git add -A 
 
-### git diff 
+## git diff 
 
-Shows diference between two commits 
+Shows diference between two commits or branches 
 
 ```
 git diff 
@@ -121,7 +114,102 @@ git diff
 or
 
 git diff d444e90 HEAD
+
+or 
+
+git diff updates master
 ```
 
 ps: HEAD -> last commit at current branch
 
+## git branch
+
+### git branch
+
+List current branch
+
+### create new branch with checkou command
+
+Creates a new branch called updates based on master 
+
+```
+git checkout -b updates
+```
+
+
+### git checkout
+
+Switches the current branch 
+
+```
+git checkout master
+```
+
+### git merge
+
+Merge branches to the master when master has no change pending compared to child branches
+
+### remove branch
+
+git branch -d name_of_branch
+
+## GIT TAGGING
+
+### git tag tagname
+
+### git tag -d tagname
+
+### git tag -a v1.0 -m "Release 1.0"
+
+Adds optional comment and version, useful to create a baseline 
+
+
+## SAVING WORK IN PROGRESS WITH STASH
+
+### git stash 
+
+useful when you need to modidy something with urgency that might be fixed or added prior
+to the work that have been in progress, this way you can save the progresse and upload 
+new changes and after that continue your work
+
+### git stash list
+
+### git stash pop 
+
+get the work progress back and  removes it's entry from the stash list
+
+## Time trave with reset and reflog
+
+### git reset c22s2si2 (commit id) --soft
+
+change the HEAD's position but keep all the changes made after the commit id choosed
+
+Preserves: staging area and workspace
+
+### git reset c22s2si2 (commit id) --mixed (*default option)
+
+change the HEAD's position including the stages made after the commit id but all modifications go 
+to workspace
+
+Preserves workspace but reset stages made after the commit id
+
+### git reflog 
+
+shows all commit ids along with actions made 
+
+useful to list all actions done so far and choose the commit id to travel with git reset
+
+
+## SSH authentication
+
+### generate key
+
+```
+gbarska@br:~/.ssh$ ssh-keygen -t rsa -C "email@domain.com"
+```
+
+### test ssh access
+
+```
+ssh -T git@github.com
+```
