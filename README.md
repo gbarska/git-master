@@ -145,6 +145,27 @@ Switches the current branch
 git checkout master
 ```
 
+
+### git fetch
+
+The git fetch command downloads commits, files, and refs from a remote repository into your local repo.
+
+```
+git fetch
+```
+
+ps:  it doesn’t force you to actually merge the changes into your repository. 
+
+
+look at the remote repository for dead branches and removes reference if any, very useful after 
+
+git branch -d 
+
+```
+git fetch -P  
+
+```
+
 ### git merge
 
 Merge branches to the master when master has no change pending compared to child branches
@@ -213,3 +234,31 @@ gbarska@br:~/.ssh$ ssh-keygen -t rsa -C "email@domain.com"
 ```
 ssh -T git@github.com
 ```
+### cloning repo
+
+<!-- go to github repository, click on copy URL button  change authentication method to ssh -->
+
+git clone git@github.com:gbarska/repository_name
+
+
+## Updating references (after renaming repositories)
+
+### git remote 
+
+List references:
+
+```
+git remote -v 
+```
+
+Set url:
+
+```
+git remote set-url origin git@github.com:gbarska/nome_do_repo
+
+```
+
+Show detailed info for the reference:
+
+git remote show origin
+
