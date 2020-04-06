@@ -122,7 +122,7 @@ git diff updates master
 
 ps: HEAD -> last commit at current branch
 
-## git branch
+## git Branches
 
 ### git branch
 
@@ -134,6 +134,22 @@ Creates a new branch called updates based on master
 
 ```
 git checkout -b updates
+```
+
+### git pull
+
+Synchronize local workspace with remote, only consider current branch
+
+```
+git pull
+```
+
+In order to consider all branches, at the remote should add --all
+Ex: if we need to synchronize our local workspace that is pointin to master
+with the development branch
+
+```
+git pull --all
 ```
 
 
@@ -170,9 +186,15 @@ git fetch -P
 
 Merge branches to the master when master has no change pending compared to child branches
 
-### remove branch
+### remove branch locally
 
 git branch -d name_of_branch
+
+
+### remove branch remote
+
+git push origin :nome_branch
+
 
 ## GIT TAGGING
 
@@ -180,9 +202,20 @@ git branch -d name_of_branch
 
 ### git tag -d tagname
 
-### git tag -a v1.0 -m "Release 1.0"
+### git tag -a v1.0 -m "Release 1.0" commit_id
 
 Adds optional comment and version, useful to create a baseline 
+
+
+### git push --force origin tag_name
+
+Forces git remote repository to update the tag with the changes made locally
+
+
+### git tag update commit id 
+
+updates the commit associated with the tag to other commit:
+git tag -f name_of_tag other_commit_id 
 
 
 ## SAVING WORK IN PROGRESS WITH STASH
@@ -262,3 +295,50 @@ Show detailed info for the reference:
 
 git remote show origin
 
+### Rebase
+
+When remote repository contains changes ahead of your local repository and you want your "version"
+of code to be AHEAD of any other changes without having to MERGE, we can use the rebase option
+
+
+git commit -am "updating local changes to be ahead of remote"
+
+git fetch 
+
+git pull --rebase
+
+git push
+
+
+## GIT FORK & SOCIAL
+
+While working with social repositories or Fork content, sometimes we need to update our copy of 
+the repository, ( the remote repo that was forked from the original repo) in this case:
+
+Show all remote urls :
+
+```
+git remote -v 
+```
+
+When we clone our forked repo our local repository will be pointing to our remote copy of the code
+to point to the original repository we must add the original repo's url as a source:
+
+```
+git remote add nome_do_repo_alternativo url_repo_alternativo
+
+ex:
+git remote add upstream git@github.com/opensourcedev/opensource-proj.git
+```
+
+Now we can update our local repo:
+
+```
+git pull upstream master
+```
+
+and push the code to our remote repository's copy:
+
+```
+git push origin master
+```
