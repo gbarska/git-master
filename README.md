@@ -57,6 +57,22 @@ Discard canges entirely and restore to the last status as the repository
 git checkout --README.md
 ```
 
+## Git ignore
+
+### .gitgnore
+
+In order to ignore unwanted files we should create a file called .gitignore with predefined files and folders that 
+should be ignored.
+
+
+PS: !IMPORTANT
+
+To remove files or folders that have already been tracked and/or pushed :
+
+
+git rm --cached <file>
+git rm --cached <folder>
+
 
 ## Git Alias
 
