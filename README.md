@@ -70,8 +70,8 @@ PS: !IMPORTANT
 To remove files or folders that have already been tracked and/or pushed :
 
 
-git rm --cached <file>
-git rm --cached <folder>
+git rm --cached nameoffolder
+git rm --cached nameoffile
 
 
 ## Git Alias
