@@ -46,12 +46,15 @@ List all files tracked by the repository so far
 ## Backing Out changes
 
 ### git reset HEAD
+Discard canges entirely and restore to the last status as the repository
+
+```
+git reset HEAD~1
+```
 
 Backs out commited changes to the staging area but keep the modifications on the working directory
 
 ### git checkout
-
-Discard canges entirely and restore to the last status as the repository
 
 ```
 git checkout --README.md
