@@ -22,6 +22,14 @@ Adds all modified files to the staging area and  Commits changes with -m message
 
 similar to git add . + git commit -m
 
+### Mapping existing folder to remote
+
+$ git remote add origin remote repository URL
+# Sets the new remote
+
+$ git remote -v
+# Verifies the new remote URL
+
 
 ### rm -rf .git
 
