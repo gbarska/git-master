@@ -43,6 +43,8 @@ Initializes git  on existing project folder
 
 Logs all commits that are part of a Repository
 
+https://devhints.io/git-log
+
 ### git show
 
 Display the commit changes along with the diffs
