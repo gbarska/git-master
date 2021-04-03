@@ -375,3 +375,11 @@ git push origin master
 ##
 Git setup ssh 
 https://dev.to/bdbch/setting-up-ssh-and-git-on-windows-10-2khk
+
+ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+
+then open git-bash -> cd userfolder/.ssh/
+type: cat id_rsa.pub
+
+copy output and paste in Github
+
