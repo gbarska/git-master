@@ -371,3 +371,7 @@ and push the code to our remote repository's copy:
 ```
 git push origin master
 ```
+
+##
+Git setup ssh 
+https://dev.to/bdbch/setting-up-ssh-and-git-on-windows-10-2khk
