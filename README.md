@@ -451,3 +451,9 @@ Now if you start making changes to your other repository, you'll need to update 
   `git push origin master`
 
 And now your changes should be reflected online.
+
+
+
+## UPDATING GIT SUBMODULES
+
+`git submodule foreach git pull origin`
