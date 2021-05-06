@@ -153,6 +153,11 @@ ps: HEAD -> last commit at current branch
 
 ## git Branches
 
+### Cloning specific branch
+
+git clone --single-branch --branch <branch_name> <repo_url>
+
+
 ### git branch
 
 List current branch
